@@ -2,6 +2,8 @@
 
 RLVR (Reinforcement Learning with Verifiable Rewards) dataset for bash scripting, generated from [Terminal-Bench](https://github.com/terminal-bench/terminal-bench) tasks.
 
+**Dataset**: [lisayan/rlvr-bash-terminal-bench](https://huggingface.co/datasets/lisayan/rlvr-bash-terminal-bench) on Hugging Face
+
 ## Stats
 
 | Metric | Value |
