@@ -38,6 +38,25 @@ RLVR (Reinforcement Learning with Verifiable Rewards) dataset for bash scripting
 - **Verification**: Docker containers with pytest test suites from Terminal-Bench
 - **Reward**: `test_passed / test_total` (fraction of pytest tests passed after script execution)
 
+## Verification Infrastructure
+
+Each task archive (`task_archives/<task_id>.tar.gz`) contains:
+
+```
+├── Dockerfile           # Execution environment
+├── run-tests.sh         # Pytest entrypoint
+├── task.yaml            # Task metadata
+├── solution.sh          # Reference solution (excluded from dataset)
+└── tests/
+    └── test_outputs.py  # Pytest assertions
+```
+
+Verification flow:
+1. Build Docker image from task's Dockerfile
+2. Execute candidate bash script in container
+3. Run pytest against `tests/test_outputs.py`
+4. Parse pass/fail counts → reward
+
 ## Caveats
 
 1. **Small scale**: 1,120 samples across 88 tasks.
