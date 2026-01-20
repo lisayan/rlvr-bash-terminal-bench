@@ -32,13 +32,13 @@ RLVR (Reinforcement Learning with Verifiable Rewards) dataset for bash scripting
 }
 ```
 
-## Bash Script Generation
+## Data Generation
 
 - **Model**: Gemini 3 Flash Preview
 - **Verification**: Docker containers with pytest test suites from Terminal-Bench
 - **Reward**: `test_passed / test_total` (fraction of pytest tests passed after script execution)
 
-## Verification Infrastructure
+## Verification
 
 Each task archive (`task_archives/<task_id>.tar.gz`) contains:
 
@@ -51,7 +51,7 @@ Each task archive (`task_archives/<task_id>.tar.gz`) contains:
     └── test_outputs.py  # Pytest assertions
 ```
 
-Verification flow:
+Steps:
 1. Build Docker image from task's Dockerfile
 2. Execute candidate bash script in container
 3. Run pytest against `tests/test_outputs.py`
